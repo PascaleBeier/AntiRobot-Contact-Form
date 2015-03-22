@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: AntiRobot Contact Form
-Plugin URI: https://github.com/PascaleBeier/AntiRobot-Contact-Form/
+Plugin URI: https://wordpress.org/plugins/antirobot-contact-form/
 Description: A simple Robot-blocking contact form using the reCAPTCHA API 2.0.
 Version: 0.1.1
 Text Domain: antirobot-contact-form

@@ -4,7 +4,7 @@ Donate link: https://pascalebeier.de/
 Tags: contact form, recaptcha, contact, recaptcha 2.0, recaptcha contact form
 Requires at least: 3.4
 Tested up to: 4.1.1
-Stable tag: 0.1.1
+Stable tag: 0.1.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
@@ -49,6 +49,8 @@ I'll answer your question in the official support forums as fast as possible.
 1. this is a German frontend example.
 
 == Changelog ==
+= 0.1.2 =
+* Updated German language
 
 = 0.1.1 =
 * Support for https://

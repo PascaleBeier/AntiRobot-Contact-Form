@@ -31,6 +31,9 @@ Furthermore, AntiRobot Contact form makes use of the reCAPTCHA 2.0 API, providin
 
 You'll find the antirobot-contact-form.pot file in the /languages/ subdirectory. You can use this file for tools like PoEdit to translate it to your liking. 
 
+= How can I style the Contact Form? =
+
+The AntiRobot Contact Form should fit to the styling of your theme. You can apply additional styling through the id `#arcf-contact-form`.
 = I think feature X is missing.  =
 
 The plugin was originally created to provide a lightweight alternative to existing feature-blown contact form plugins. 
@@ -49,6 +52,10 @@ I'll answer your question in the official support forums as fast as possible.
 1. this is a German frontend example.
 
 == Changelog ==
+= 0.1.3 =
+* Fixed Typo
+* Added Instructions for styling
+
 = 0.1.2 =
 * Updated German language
 

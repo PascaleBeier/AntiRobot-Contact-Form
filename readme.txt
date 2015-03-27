@@ -4,7 +4,7 @@ Donate link: https://pascalebeier.de/
 Tags: contact form, recaptcha, contact, recaptcha 2.0, recaptcha contact form
 Requires at least: 3.4
 Tested up to: 4.1.1
-Stable tag: 0.1.2
+Stable tag: 0.1.3
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 

@@ -4,7 +4,7 @@ Donate link: https://pascalebeier.de/
 Tags: contact form, recaptcha, contact, recaptcha 2.0, recaptcha contact form, recaptcha 2, simple contact form
 Requires at least: 3.4
 Tested up to: 4.2.2
-Stable tag: 0.2.0
+Stable tag: 0.2.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
@@ -53,6 +53,9 @@ I'll answer your question in the official support forums as fast as possible.
 1. this is a German frontend example.
 
 == Changelog ==
+= 0.2.1 =
+* Updated German translation
+
 = 0.2.0 =
 * Tested for WordPress 4.2.2
 * Add placeholder values

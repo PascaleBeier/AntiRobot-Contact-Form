@@ -3,7 +3,7 @@
 Plugin Name: AntiRobot Contact Form
 Plugin URI: https://wordpress.org/plugins/antirobot-contact-form/
 Description: A simple Robot-blocking contact form using the reCAPTCHA API 2.0.
-Version: 0.1.3
+Version: 0.2.0
 Text Domain: antirobot-contact-form
 Domain Path: /languages/
 Author: Pascale Beier
@@ -27,7 +27,7 @@ function arcf_textdomain()
 
 add_action('plugins_loaded', 'arcf_textdomain');
 /*
-register and enqueue ReCaptcha-libraries
+register and enqueue reCAPTCHA libraries
 @since 0.0.1
 @changed 0.1.1
 */
@@ -42,6 +42,7 @@ add_action('wp_head', 'arcf_add_recaptcha');
 /*
 contains the contact form frontend code
 @since 0.0.1
+@changed 0.2.0
 */
 
 function arcf_frontend()
@@ -49,15 +50,15 @@ function arcf_frontend()
     echo '<form action="' . esc_url($_SERVER['REQUEST_URI']) . '" method="post" id="arcf-contact-form">';
     echo '<p>';
     echo '<label>' . __('Your Name', 'antirobot-contact-form') . '</label> <br />';
-    echo '<input type="text" name="arcf-name" pattern="[a-zA-Z0-9 ]+" value="' . (isset($_POST["arcf-name"]) ? esc_attr($_POST["arcf-name"]) : '') . '" size="40" required="required"  />';
+    echo '<input type="text" name="arcf-name" pattern="[a-zA-Z0-9 ]+" placeholder="' . __('Jon Doe', 'antirobot-contact-form') . '" value="' . (isset($_POST["arcf-name"]) ? esc_attr($_POST["arcf-name"]) : '') . '" size="40" required="required"  />';
     echo '</p>';
     echo '<p>';
     echo '<label>' . __('Your E-Mail', 'antirobot-contact-form') . '</label> <br />';
-    echo '<input type="email" name="arcf-email" value="' . (isset($_POST["arcf-email"]) ? esc_attr($_POST["arcf-email"]) : '') . '" size="40"  required="required" />';
+    echo '<input type="email" name="arcf-email" placeholder="' . __('mail@example.org', 'antirobot-contact-form') . '" value="' . (isset($_POST["arcf-email"]) ? esc_attr($_POST["arcf-email"]) : '') . '" size="40"  required="required" />';
     echo '</p>';
     echo '<p>';
     echo '<label>' . __('Your Message', 'antirobot-contact-form') . '</label> <br />';
-    echo '<textarea rows="10" cols="40" name="arcf-message" required="required">' . (isset($_POST["arcf-message"]) ? esc_attr($_POST["arcf-message"]) : '') . '</textarea>';
+    echo '<textarea rows="10" cols="40" name="arcf-message" placeholder="' . __('Enter your message here', 'antirobot-contact-form') . '" required="required">' . (isset($_POST["arcf-message"]) ? esc_attr($_POST["arcf-message"]) : '') . '</textarea>';
     echo '</p>';
     echo '<p>';
     echo '<div class="g-recaptcha" data-sitekey="' . esc_attr(get_option('arcf_publickey')) . '"></div>';
@@ -82,6 +83,7 @@ function arcf_validation()
         $subject = esc_attr(get_option('arcf_subject'));
         $privatekey = esc_attr(get_option('arcf_privatekey'));
         $headers = "From: $name <$email>" . "\r\n";
+        $headers .= "Reply-To: <$email>";
         $captcha;
         if (isset($_POST['g-recaptcha-response'])) {
             $captcha = $_POST['g-recaptcha-response'];
@@ -99,7 +101,7 @@ function arcf_validation()
         else {
             if (wp_mail($to, $subject, $message, $headers)) {
                 echo '<div>';
-                echo '<p>' . __('The form was successfully sent. Thanks for contacting me.', 'antirobot-contact-form') . '</p>';
+                echo '<p>' . __('The form was successfully sent.', 'antirobot-contact-form') . '</p>';
                 echo '</div>';
             }
             else {

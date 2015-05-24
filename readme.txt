@@ -1,10 +1,10 @@
 === AntiRobot Contact Form ===
 Contributors: pascalebeier
 Donate link: https://pascalebeier.de/
-Tags: contact form, recaptcha, contact, recaptcha 2.0, recaptcha contact form
+Tags: contact form, recaptcha, contact, recaptcha 2.0, recaptcha contact form, recaptcha 2, simple contact form
 Requires at least: 3.4
-Tested up to: 4.1.1
-Stable tag: 0.1.3
+Tested up to: 4.2.2
+Stable tag: 0.2.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
@@ -34,6 +34,7 @@ You'll find the antirobot-contact-form.pot file in the /languages/ subdirectory.
 = How can I style the Contact Form? =
 
 The AntiRobot Contact Form should fit to the styling of your theme. You can apply additional styling through the id `#arcf-contact-form`.
+
 = I think feature X is missing.  =
 
 The plugin was originally created to provide a lightweight alternative to existing feature-blown contact form plugins. 
@@ -52,6 +53,12 @@ I'll answer your question in the official support forums as fast as possible.
 1. this is a German frontend example.
 
 == Changelog ==
+= 0.2.0 =
+* Tested for WordPress 4.2.2
+* Add placeholder values
+* Add Reply-To value for E-Mail clients
+* Updated translations
+
 = 0.1.3 =
 * Fixed Typo
 * Added Instructions for styling

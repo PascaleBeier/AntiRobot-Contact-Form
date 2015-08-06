@@ -3,12 +3,12 @@ Contributors: pascalebeier
 Donate link: https://pascalebeier.de/
 Tags: contact form, recaptcha, contact, recaptcha 2.0, recaptcha contact form, recaptcha 2, simple contact form
 Requires at least: 3.4
-Tested up to: 4.2.2
-Stable tag: 0.2.1
+Tested up to: 4.2.4
+Stable tag: 1.0.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
-A simple robot-blocking contact form using the reCAPTCHA 2.0 API. Without additional hassle.
+AntiRobot Contact Form is a fast and simple spam-blocking contact form using the reCAPTCHA 2.0 API.
 
 == Description ==
 
@@ -35,14 +35,12 @@ You'll find the antirobot-contact-form.pot file in the /languages/ subdirectory.
 
 The AntiRobot Contact Form should fit to the styling of your theme. You can apply additional styling through the id `#arcf-contact-form`.
 
+Error and success feedback notices are styled via .arcf-error and .arcf-success.
+
 = I think feature X is missing.  =
 
 The plugin was originally created to provide a lightweight alternative to existing feature-blown contact form plugins. 
 I wanted to create a simple, fast and secure contact form solution. 
-
-= Could you add feature X? =
-
-Depends on whether I feel like this feature would match the plugin's philosophy as stated above.
 
 = I need help =
 
@@ -50,9 +48,19 @@ I'll answer your question in the official support forums as fast as possible.
 
 == Screenshots ==
 
-1. this is a German frontend example.
+1. A German frontend example.
+
+2. Another English frontend example.
+
+3. Backend as of 1.0.0.
 
 == Changelog ==
+= 1.0.0 =
+* Tested for WordPress 4.2.4
+* Improved Backend
+* Improved localization
+* added classes for styling
+
 = 0.2.1 =
 * Updated German translation
 

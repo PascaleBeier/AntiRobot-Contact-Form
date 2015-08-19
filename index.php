@@ -3,7 +3,7 @@
 Plugin Name: AntiRobot Contact Form
 Plugin URI: https://wordpress.org/plugins/antirobot-contact-form/
 Description: AntiRobot Contact Form is a fast and simple spam-blocking contact form using the reCAPTCHA 2.0 API.
-Version: 1.0.0
+Version: 1.1.0
 Text Domain: antirobot-contact-form
 Domain Path: /languages/
 Author: Pascale Beier
@@ -70,7 +70,7 @@ function arcf_frontend()
 /*
 Validate contact form input and ReCaptcha solution and mail contents to admin mail
 @since 0.0.1
-@changed 0.1.0
+@changed 1.1.0
 */
 
 function arcf_validation()
@@ -105,7 +105,7 @@ function arcf_validation()
                 echo '</div>';
             }
             else {
-                echo '<div class="arcf-error"><p>' . __('An unexpected error occured. If this problem persists, please contact the webmaster.', 'antirobot-contact-form') . '</p></div>';
+                echo '<div class="arcf-error"><p>' . __('An unexpected error occurred. If this problem persists, please contact the webmaster. Error: wp-mail does not work', 'antirobot-contact-form') . '</p></div>';
             }
         }
     }
@@ -150,23 +150,23 @@ function arcf_setup_menu()
 /*
 Display backend settings page
 @since 0.0.2
-@changed 1.0.0
+@changed 1.1.0
 */
 
 function arcf_init()
 {
 ?>
         <div class="wrap">
-        <h2><?php
-    _e('AntiRobot Contact Form', 'antirobot-contact-form'); ?></h2>
+        <h1><?php
+    _e('AntiRobot Contact Form', 'antirobot-contact-form'); ?></h1>
         <form method="post" action="options.php"> 
         <?php
     settings_fields('arcf-option-group');
     do_settings_sections('arcf-option-group');
 ?>
         <h3><?php
-    _e('reCAPTCHA', 'antirobot-contact-form'); ?></h3>(<a href="https://www.google.com/recaptcha/admin"><?php
-    _e('Get your keys', 'antirobot-contact-form'); ?></a>)
+    _e('reCAPTCHA', 'antirobot-contact-form'); ?> <a class="page-title-action" href="https://www.google.com/recaptcha/admin"><?php
+    _e('Get your keys', 'antirobot-contact-form'); ?></a></h3>
         <p>
         <label><?php
     _e('Public Key', 'antirobot-contact-form'); ?></label> <br />
@@ -201,8 +201,12 @@ function arcf_init()
     _e('Usage', 'antirobot-contact-form'); ?></h3>
         <p><?php
     _e('After setting up, you may insert the shortcode <code>[antirobot_contact_form]</code> on pages or posts to display the contact form.', 'antirobot-contact-form'); ?></p>
+        <h3><?php
+    _e('Did you save time?'); ?></h3>
+        <p><?php
+    _e('If this Plugin has done its job saving your time, <a href=\"https://wordpress.org/support/view/plugin-reviews/antirobot-contact-form#postform\">leave a review</a> and spread the word. If you want to support my coffee addiction, you can <a href=\"https://pascalebeier.de/donate/\">tip me on paypal</a>.</p>', 'antirobot-contact-form'); ?></p>
         </table>
-            </div>
+        </div>
 <?php
 }
 

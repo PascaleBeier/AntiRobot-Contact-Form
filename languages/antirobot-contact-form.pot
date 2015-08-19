@@ -2,13 +2,13 @@
 # This file is distributed under the same license as the AntiRobot Contact Form package.
 msgid ""
 msgstr ""
-"Project-Id-Version: AntiRobot Contact Form 1.0.0\n"
+"Project-Id-Version: AntiRobot Contact Form 1.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/antirobot-contact-form\n"
-"POT-Creation-Date: 2015-08-06 09:21:12+00:00\n"
+"POT-Creation-Date: 2015-08-19 19:56:36+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-08-06 11:25+0100\n"
+"PO-Revision-Date: 2015-08-19 22:00+0100\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Last-Translator: \n"
 "Language-Team: Pascale Beier <mail@pascalebeier.de>\n"
@@ -54,8 +54,11 @@ msgstr "Formular erfolgreich versendet."
 
 #: index.php:108
 msgid ""
-"An unexpected error occured. If this problem persists, please contact the webmaster."
-msgstr "Ein unerwarteter Fehler ist aufgetreten. "
+"An unexpected error occurred. If this problem persists, please contact the webmaster. "
+"Error: wp-mail does not work"
+msgstr ""
+"Ein unerwarteter Fehler aufgetreten. Wenn dieses Problem weiterhin besteht, "
+"kontaktieren Sie bitte den Webmaster. Fehlermeldung: wp_mail funktioniert nicht"
 
 #. Plugin Name of the plugin/theme
 #: index.php:161
@@ -102,6 +105,23 @@ msgstr ""
 "Nach abgeschlossener Konfiguration den Shortcode <code>[antirobot_contact_form]</"
 "code> auf Beiträgen oder Seiten einfügen, auf denen das Kontaktformular erscheinen "
 "soll."
+
+#: index.php:205
+msgid "Did you save time?"
+msgstr "Zeit gespart?"
+
+#: index.php:207
+msgid ""
+"If this Plugin has done its job saving your time, <a href=\\\"https://wordpress.org/"
+"support/view/plugin-reviews/antirobot-contact-form#postform\\\">leave a review</a> "
+"and spread the word. If you want to support my coffee addiction, you can <a href=\\"
+"\"https://pascalebeier.de/donate/\\\">tip me on paypal</a>.</p>"
+msgstr ""
+"Wenn dieses Plugin Ihnen Zeit spart, <a href=\\\"https://wordpress.org/support/view/"
+"plugin-reviews/antirobot-contact-form#postform\\\">hinterlassen Sie eine Bewertung</"
+"a> und empfehlen Sie es weiter. Wenn Sie meine Kaffee-Sucht unterstützen wollen, "
+"können Sie mir <a href=\\\"https://pascalebeier.de/donate/\\\">Trinkgeld geben</a>.</"
+"p>"
 
 #. Plugin URI of the plugin/theme
 msgid "https://wordpress.org/plugins/antirobot-contact-form/"

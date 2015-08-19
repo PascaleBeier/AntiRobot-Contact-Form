@@ -202,7 +202,7 @@ function arcf_init()
         <p><?php
     _e('After setting up, you may insert the shortcode <code>[antirobot_contact_form]</code> on pages or posts to display the contact form.', 'antirobot-contact-form'); ?></p>
         <h3><?php
-    _e('Did you save time?'); ?></h3>
+    _e('Did you save time?', 'antirobot-contact-form'); ?></h3>
         <p><?php
     _e('If this Plugin has done its job saving your time, <a href=\"https://wordpress.org/support/view/plugin-reviews/antirobot-contact-form#postform\">leave a review</a> and spread the word. If you want to support my coffee addiction, you can <a href=\"https://pascalebeier.de/donate/\">tip me on paypal</a>.</p>', 'antirobot-contact-form'); ?></p>
         </table>

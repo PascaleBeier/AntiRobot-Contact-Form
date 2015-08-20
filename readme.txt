@@ -4,7 +4,7 @@ Donate link: https://pascalebeier.de/donate/
 Tags: contact form, recaptcha, contact, recaptcha 2.0, recaptcha contact form, recaptcha 2, simple contact form
 Requires at least: 3.4
 Tested up to: 4.3.0
-Stable tag: 1.1.0
+Stable tag: 1.2.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
@@ -12,7 +12,7 @@ AntiRobot Contact Form is a fast and simple spam-blocking contact form using the
 
 == Description ==
 
-*Note: AntiRobot Contact Form is available in English and German.*
+*Note: AntiRobot Contact Form is available in English, French and German.*
 
 = Simple and fast - but secure! =
 *Don't waste your time* setting up a fast and secure contact form. Inspired by popular contact form plugins, AntiRobot Contact Form removes the struggle of complicated configuration and delivers a secure contact form solution built on top of Google's reCAPTCHA 2.0 API while remaining super simple. Get started within minutes!
@@ -51,6 +51,9 @@ I answer any questions in the official [support forums](https://plus.google.com/
 3. Backend as of 1.0.0
 
 == Changelog ==
+= 1.2.0 =
+* Added French Localization (Thanks Dimitri)
+
 = 1.1.0 =
 * Tested for WordPress 4.3
 * Further backend improvements

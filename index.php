@@ -3,7 +3,7 @@
 Plugin Name: AntiRobot Contact Form
 Plugin URI: https://wordpress.org/plugins/antirobot-contact-form/
 Description: AntiRobot Contact Form is a fast and simple spam-blocking contact form using the reCAPTCHA 2.0 API.
-Version: 1.2.0
+Version: 1.3.0
 Text Domain: antirobot-contact-form
 Domain Path: /languages/
 Author: Pascale Beier
@@ -70,7 +70,7 @@ function arcf_frontend()
 /*
 Validate contact form input and ReCaptcha solution and mail contents to admin mail
 @since 0.0.1
-@changed 1.1.0
+@changed 1.3.0
 */
 
 function arcf_validation()
@@ -78,13 +78,16 @@ function arcf_validation()
     if (isset($_POST['arcf-submitted'])) {
         $name = sanitize_text_field($_POST["arcf-name"]);
         $email = sanitize_email($_POST["arcf-email"]);
-        $message = esc_textarea($_POST["arcf-message"]);
         $to = esc_attr(get_option('arcf_mailto'));
+        $message = "$name <$email> -> <$to>:" . "\r\n\r\n"; 
+        $message .= esc_textarea($_POST["arcf-message"]);
         $subject = esc_attr(get_option('arcf_subject'));
         $privatekey = esc_attr(get_option('arcf_privatekey'));
+        $headers = "CC: $email" . "\r\n"; 
         $headers = "From: $name <$email>" . "\r\n";
         $headers .= "Reply-To: <$email>";
         $captcha;
+        $success = null;
         if (isset($_POST['g-recaptcha-response'])) {
             $captcha = $_POST['g-recaptcha-response'];
         }
@@ -99,7 +102,7 @@ function arcf_validation()
             echo '<h2>' . __('Solve the reCAPTCHA', 'antirobot-contact-form') . '</h2>';
         }
         else {
-            if (wp_mail($to, $subject, $message, $headers)) {
+            if (wp_mail($to, $subject, $message, $headers) && wp_mail($email, $subject, $message, $headers))  {
                 echo '<div class="arcf-success">';
                 echo '<p>' . __('Form successfully sent.', 'antirobot-contact-form') . '</p>';
                 echo '</div>';

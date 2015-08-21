@@ -3,7 +3,7 @@
 Plugin Name: AntiRobot Contact Form
 Plugin URI: https://wordpress.org/plugins/antirobot-contact-form/
 Description: AntiRobot Contact Form is a fast and simple spam-blocking contact form using the reCAPTCHA 2.0 API.
-Version: 1.3.2
+Version: 1.3.3
 Text Domain: antirobot-contact-form
 Domain Path: /languages/
 Author: Pascale Beier
@@ -86,7 +86,7 @@ function arcf_validation()
         $headers = "CC: $email" . "\r\n"; 
         $headers = "From: $name <$email>" . "\r\n";
         $headers .= "Reply-To: <$email>" . "\r\n";
-        $headers .= "Content-Type: text/html; charset=UTF-8";
+
         $captcha;
         $success = null;
         if (isset($_POST['g-recaptcha-response'])) {

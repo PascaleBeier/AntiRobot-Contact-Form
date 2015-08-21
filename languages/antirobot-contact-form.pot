@@ -2,142 +2,130 @@
 # This file is distributed under the same license as the AntiRobot Contact Form package.
 msgid ""
 msgstr ""
-"Project-Id-Version: AntiRobot Contact Form 1.1.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/antirobot-contact-form\n"
-"POT-Creation-Date: 2015-08-19 19:56:36+00:00\n"
+"Project-Id-Version: AntiRobot Contact Form 1.3.2\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/antirobot-contact-"
+"form\n"
+"POT-Creation-Date: 2015-08-21 08:42:05+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-08-19 22:21+0100\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Last-Translator: \n"
-"Language-Team: Pascale Beier <mail@pascalebeier.de>\n"
-"Language: de\n"
-"X-Generator: Poedit 1.7.5\n"
-"X-Poedit-SourceCharset: UTF-8\n"
+"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 
 #: index.php:52
 msgid "Your Name"
-msgstr "Name"
+msgstr ""
 
 #: index.php:53
 msgid "Jon Doe"
-msgstr "Max Mustermann"
+msgstr ""
 
 #: index.php:56
 msgid "Your E-Mail"
-msgstr "E-Mail"
+msgstr ""
 
 #: index.php:57
 msgid "mail@example.org"
-msgstr "max@mustermann.de"
+msgstr ""
 
 #: index.php:60
 msgid "Your Message"
-msgstr "Nachricht"
+msgstr ""
 
 #: index.php:61
 msgid "Enter your message here"
-msgstr "Nachricht hier eingeben"
+msgstr ""
 
 #: index.php:66
 msgid "Submit"
-msgstr "Absenden"
+msgstr ""
 
-#: index.php:93 index.php:99
+#: index.php:97 index.php:103
 msgid "Solve the reCAPTCHA"
-msgstr "Löse das reCAPTCHA"
-
-#: index.php:104
-msgid "Form successfully sent."
-msgstr "Formular erfolgreich versendet."
+msgstr ""
 
 #: index.php:108
-msgid ""
-"An unexpected error occurred. If this problem persists, please contact the webmaster. "
-"Error: wp-mail does not work"
+msgid "Form successfully sent."
 msgstr ""
-"Ein unerwarteter Fehler aufgetreten. Wenn dieses Problem weiterhin besteht, "
-"kontaktieren Sie bitte den Webmaster. Fehlermeldung: wp_mail funktioniert nicht"
 
+#: index.php:112
+msgid ""
+"An unexpected error occurred. If this problem persists, please contact the "
+"webmaster. Error: wp-mail does not work"
+msgstr ""
+
+#. #-#-#-#-#  plugin.pot (AntiRobot Contact Form 1.3.2)  #-#-#-#-#
 #. Plugin Name of the plugin/theme
-#: index.php:161
+#: index.php:165
 msgid "AntiRobot Contact Form"
-msgstr "AntiRobot Kontaktformular"
-
-#: index.php:168
-msgid "reCAPTCHA"
-msgstr "reCAPTCHA"
-
-#: index.php:169
-msgid "Get your keys"
-msgstr "Schlüssel holen"
+msgstr ""
 
 #: index.php:172
-msgid "Public Key"
-msgstr "Websiteschlüssel"
-
-#: index.php:178
-msgid "Secret Key"
-msgstr "Geheimschlüssel"
-
-#: index.php:184
-msgid "Contact Form"
-msgstr "Kontaktformular"
-
-#: index.php:187
-msgid "Recipient"
-msgstr "Empfänger"
-
-#: index.php:193
-msgid "Subject"
-msgstr "Betreff"
-
-#: index.php:201
-msgid "Usage"
-msgstr "Nutzung"
-
-#: index.php:203
-msgid ""
-"After setting up, you may insert the shortcode <code>[antirobot_contact_form]</code> "
-"on pages or posts to display the contact form."
+msgid "reCAPTCHA"
 msgstr ""
-"Nach abgeschlossener Konfiguration den Shortcode <code>[antirobot_contact_form]</"
-"code> auf Beiträgen oder Seiten einfügen, auf denen das Kontaktformular erscheinen "
-"soll."
+
+#: index.php:173
+msgid "Get your keys"
+msgstr ""
+
+#: index.php:176
+msgid "Public Key"
+msgstr ""
+
+#: index.php:182
+msgid "Secret Key"
+msgstr ""
+
+#: index.php:188
+msgid "Contact Form"
+msgstr ""
+
+#: index.php:191
+msgid "Recipient"
+msgstr ""
+
+#: index.php:197
+msgid "Subject"
+msgstr ""
 
 #: index.php:205
-msgid "Did you save time?"
-msgstr "Zeit gespart?"
+msgid "Usage"
+msgstr ""
 
 #: index.php:207
 msgid ""
-"If this Plugin has done its job saving your time, <a href=\"https://wordpress.org/"
-"support/view/plugin-reviews/antirobot-contact-form#postform\">leave a review</a> and "
-"spread the word. If you want to support my coffee addiction, you can <a href="
-"\"https://pascalebeier.de/donate/\">tip me on paypal</a>.</p>"
+"After setting up, you may insert the shortcode <code>[antirobot_contact_form]"
+"</code> on pages or posts to display the contact form."
 msgstr ""
-"Wenn dieses Plugin Ihnen Zeit spart, <a href=\"https://wordpress.org/support/view/"
-"plugin-reviews/antirobot-contact-form#postform\">hinterlassen Sie eine Bewertung</a> "
-"und empfehlen Sie es weiter. Wenn Sie meine Kaffee-Sucht unterstützen wollen, können "
-"Sie mir <a href=\"https://pascalebeier.de/donate/\">Trinkgeld geben</a>.</p>"
+
+#: index.php:209
+msgid "Did you save time?"
+msgstr ""
+
+#: index.php:211
+msgid ""
+"If this Plugin has done its job saving your time, <a href=\"https://"
+"wordpress.org/support/view/plugin-reviews/antirobot-contact-form#postform"
+"\">leave a review</a> and spread the word. If you want to support my coffee "
+"addiction, you can <a href=\"https://pascalebeier.de/donate/\">tip me on "
+"paypal</a>.</p>"
+msgstr ""
 
 #. Plugin URI of the plugin/theme
 msgid "https://wordpress.org/plugins/antirobot-contact-form/"
-msgstr "https://wordpress.org/plugins/antirobot-contact-form/"
+msgstr ""
 
 #. Description of the plugin/theme
 msgid ""
-"AntiRobot Contact Form is a fast and simple spam-blocking contact form using the "
-"reCAPTCHA 2.0 API."
+"AntiRobot Contact Form is a fast and simple spam-blocking contact form using "
+"the reCAPTCHA 2.0 API."
 msgstr ""
-"Das AntiRobot Kontaktformular ist ein schnelles, einfaches und spamsicheres "
-"Kontaktformular mit der reCAPTCHA 2.0 API."
 
 #. Author of the plugin/theme
 msgid "Pascale Beier"
-msgstr "Pascale Beier"
+msgstr ""
 
 #. Author URI of the plugin/theme
 msgid "https://pascalebeier.de/"
-msgstr "https://pascalebeier.de/"
+msgstr ""

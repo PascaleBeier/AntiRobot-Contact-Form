@@ -8,60 +8,60 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-08-21 10:50+0100\n"
+"PO-Revision-Date: 2015-08-21 10:54+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: fr_FR\n"
+"Language: de_DE\n"
 "X-Generator: Poedit 1.7.5\n"
 
 #: index.php:52
 msgid "Your Name"
-msgstr "Nom"
+msgstr "Name"
 
 #: index.php:53
 msgid "Jon Doe"
-msgstr "Vos nom et prénom"
+msgstr "Max Mustermann"
 
 #: index.php:56
 msgid "Your E-Mail"
-msgstr "E-Mailadresse e-mail"
+msgstr "E-Mail"
 
 #: index.php:57
 msgid "mail@example.org"
-msgstr "nom@domaine.fr"
+msgstr "max@mustermann.de"
 
 #: index.php:60
 msgid "Your Message"
-msgstr "Message"
+msgstr "Nachricht"
 
 #: index.php:61
 msgid "Enter your message here"
-msgstr "Entrez votre message ici"
+msgstr "Nachricht hier eingeben"
 
 #: index.php:66
 msgid "Submit"
-msgstr "Envoyer"
+msgstr "Absenden"
 
 #: index.php:97 index.php:103
 msgid "Solve the reCAPTCHA"
-msgstr "Résoudre le reCAPTCHA"
+msgstr "Löse das reCAPTCHA"
 
 #: index.php:108
 msgid "Form successfully sent."
-msgstr "Formulaire envoyé avec succès."
+msgstr "Formular erfolgreich versendet."
 
 #: index.php:112
 msgid ""
 "An unexpected error occurred. If this problem persists, please contact the webmaster. "
 "Error: wp-mail does not work"
 msgstr ""
-"Une erreur inattendue est apparue. Si ce problème persiste, contactez le webmaster. "
-"Erreur: wp-mail ne fonctionne pas"
+"Ein unerwarteter Fehler ist aufgetreten. Wenn dieses Problem weiterhin besteht, "
+"wenden Sie sich bitte an den Webmaster. Fehler: wp-Mail funktioniert nicht"
 
 #. Plugin Name of the plugin/theme
 #: index.php:165
 msgid "AntiRobot Contact Form"
-msgstr "AntiRobot Formulaire de Contact"
+msgstr "AntiRobot Kontaktformular"
 
 #: index.php:172
 msgid "reCAPTCHA"
@@ -69,43 +69,44 @@ msgstr "reCAPTCHA"
 
 #: index.php:173
 msgid "Get your keys"
-msgstr "Prenez vos clés"
+msgstr "Schlüssel holen"
 
 #: index.php:176
 msgid "Public Key"
-msgstr "Clé publique"
+msgstr "Websiteschlüssel"
 
 #: index.php:182
 msgid "Secret Key"
-msgstr "Clé privée"
+msgstr "Geheimschlüssel"
 
 #: index.php:188
 msgid "Contact Form"
-msgstr "Formulaire de contact"
+msgstr "Kontaktformular"
 
 #: index.php:191
 msgid "Recipient"
-msgstr "Destinataire"
+msgstr "Empfänger"
 
 #: index.php:197
 msgid "Subject"
-msgstr "Sujet"
+msgstr "Betreff"
 
 #: index.php:205
 msgid "Usage"
-msgstr "Utilisation"
+msgstr "Nutzung"
 
 #: index.php:207
 msgid ""
 "After setting up, you may insert the shortcode <code>[antirobot_contact_form]</code> "
 "on pages or posts to display the contact form."
 msgstr ""
-"Après la mise en place, insérez le shortcode <code>[antirobot_contact_form]</code> "
-"dans les pages ou les articles pour afficher le formulaire de contact."
+"Nach abgeschlossener Konfiguration den Shortcode <code>[antirobot_contact_form]</"
+"code> auf Beiträgen oder Seiten einfügen, auf denen das Kontaktformular erscheinen "
+"soll."
 
 #: index.php:209
 msgid "Did you save time?"
-msgstr "Avez-vous gagner du temps?"
+msgstr "Zeit gespart?"
 
 #: index.php:211
 msgid ""
@@ -114,10 +115,10 @@ msgid ""
 "spread the word. If you want to support my coffee addiction, you can <a href="
 "\"https://pascalebeier.de/donate/\">tip me on paypal</a>.</p>"
 msgstr ""
-"Si ce plugin a fait son travail en économisant votre temps, <a href=\"https://"
-"wordpress.org/support/view/plugin-reviews/antirobot-contact-form#postform\">écrivez "
-"un avis</a> et passez le mot. Si vous voulez soutenir ma dépendance au café, vous "
-"pouvez <a href=\"https://pascalebeier.de/donate/\">me donner un pourboire</a>.</p>"
+"Wenn dieses Plugin Ihnen Zeit spart, <a href=\"https://wordpress.org/support/view/"
+"plugin-reviews/antirobot-contact-form#postform\">hinterlassen Sie eine Bewertung</a> "
+"und empfehlen Sie es weiter. Wenn Sie meine Kaffee-Sucht unterstützen wollen, können "
+"Sie mir <a href=\"https://pascalebeier.de/donate/\">Trinkgeld geben</a>.</p>"
 
 #. Plugin URI of the plugin/theme
 msgid "https://wordpress.org/plugins/antirobot-contact-form/"
@@ -128,8 +129,8 @@ msgid ""
 "AntiRobot Contact Form is a fast and simple spam-blocking contact form using the "
 "reCAPTCHA 2.0 API."
 msgstr ""
-"AntiRobot Formulaire de contact est un formulaire de contact anti-spam rapide et "
-"simple utilisant le reCAPTCHA 2.0 API."
+"Das AntiRobot Kontaktformular ist ein schnelles, einfaches und spamsicheres "
+"Kontaktformular mit der reCAPTCHA 2.0 API."
 
 #. Author of the plugin/theme
 msgid "Pascale Beier"

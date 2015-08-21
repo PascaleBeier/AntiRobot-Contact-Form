@@ -4,7 +4,7 @@ Donate link: https://pascalebeier.de/donate/
 Tags: contact form, recaptcha, contact, recaptcha 2.0, recaptcha contact form, recaptcha 2, simple contact form
 Requires at least: 3.4
 Tested up to: 4.3.0
-Stable tag: 1.2.0
+Stable tag: 1.3.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
@@ -51,6 +51,12 @@ I answer any questions in the official [support forums](https://plus.google.com/
 3. Backend as of 1.0.0
 
 == Changelog ==
+= 1.3.2 =
+* Fixed localization
+
+= 1.3.1 =
+* Fixed Character escaping
+
 = 1.3.0 =
 * Sender now receive a copy of their mail
 * Added recipient information in mail content

@@ -3,7 +3,7 @@
 Plugin Name: AntiRobot Contact Form
 Plugin URI: https://wordpress.org/plugins/antirobot-contact-form/
 Description: AntiRobot Contact Form is a fast and simple spam-blocking contact form using the reCAPTCHA 2.0 API.
-Version: 1.3.0
+Version: 1.3.2
 Text Domain: antirobot-contact-form
 Domain Path: /languages/
 Author: Pascale Beier
@@ -80,12 +80,13 @@ function arcf_validation()
         $email = sanitize_email($_POST["arcf-email"]);
         $to = esc_attr(get_option('arcf_mailto'));
         $message = "$name <$email> -> <$to>:" . "\r\n\r\n"; 
-        $message .= esc_textarea($_POST["arcf-message"]);
+        $message .= stripslashes($_POST["arcf-message"]);
         $subject = esc_attr(get_option('arcf_subject'));
         $privatekey = esc_attr(get_option('arcf_privatekey'));
         $headers = "CC: $email" . "\r\n"; 
         $headers = "From: $name <$email>" . "\r\n";
-        $headers .= "Reply-To: <$email>";
+        $headers .= "Reply-To: <$email>" . "\r\n";
+        $headers .= "Content-Type: text/html; charset=UTF-8";
         $captcha;
         $success = null;
         if (isset($_POST['g-recaptcha-response'])) {
@@ -207,7 +208,7 @@ function arcf_init()
         <h3><?php
     _e('Did you save time?', 'antirobot-contact-form'); ?></h3>
         <p><?php
-    _e('If this Plugin has done its job saving your time, <a href=\"https://wordpress.org/support/view/plugin-reviews/antirobot-contact-form#postform\">leave a review</a> and spread the word. If you want to support my coffee addiction, you can <a href=\"https://pascalebeier.de/donate/\">tip me on paypal</a>.</p>', 'antirobot-contact-form'); ?></p>
+    _e('If this Plugin has done its job saving your time, <a href="https://wordpress.org/support/view/plugin-reviews/antirobot-contact-form#postform">leave a review</a> and spread the word. If you want to support my coffee addiction, you can <a href="https://pascalebeier.de/donate/">tip me on paypal</a>.</p>', 'antirobot-contact-form'); ?></p>
         </table>
         </div>
 <?php

@@ -1,10 +1,10 @@
 === AntiRobot Contact Form ===
 Contributors: pascalebeier
-Donate link: https://pascalebeier.de/donate/
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DCGHNCDNK4XU4
 Tags: contact form, recaptcha, contact, recaptcha 2.0, recaptcha contact form, recaptcha 2, simple contact form
 Requires at least: 3.4
 Tested up to: 4.3.1
-Stable tag: 1.4.0
+Stable tag: 1.4.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
@@ -26,14 +26,14 @@ AntiRobot Contact Form is a fast and simple spam-blocking contact form using the
 * style anything through predefined CSS classes
 
 = Support =
-I answer any questions in the official [support forums](https://plus.google.com/+SergejMÃ¼ller/posts/Ex2vYGN8G2L).
+I answer any questions in the official [support forums](https://wordpress.org/support/plugin/antirobot-contact-form).
 
 = System requirements =
 * WordPress 3.4 or higher
 * PHP 5.2.4 or higher
 
 = Support =
-* [PayPal](https://pascalebeier.de/donate/)
+* [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DCGHNCDNK4XU4)
 
 == Installation ==
 
@@ -51,6 +51,10 @@ I answer any questions in the official [support forums](https://plus.google.com/
 3. Backend as of 1.0.0
 
 == Changelog ==
+= 1.4.1 =
+* fix broken links
+* update readme
+
 = 1.4.0 =
 * Tested against WordPress 4.3.1
 

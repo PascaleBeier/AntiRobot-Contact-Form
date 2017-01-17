@@ -12,7 +12,7 @@ AntiRobot Contact Form is a fast and simple spam-blocking contact form using the
 
 == Description ==
 
-*Note: AntiRobot Contact Form is currently only available in English. German translation will follow shortly.
+*Note: AntiRobot Contact Form is currently available in English, German and French.
 
 = Simple and fast - but secure! =
 *Don't waste your time* setting up a fast and secure contact form. Inspired by popular contact form plugins, AntiRobot Contact Form removes the struggle of complicated configuration and delivers a secure contact form solution built on top of Google's reCAPTCHA 2.0 API while remaining super simple. Get started within minutes!

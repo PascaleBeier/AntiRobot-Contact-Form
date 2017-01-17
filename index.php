@@ -3,9 +3,8 @@
 Plugin Name: AntiRobot Contact Form
 Plugin URI: https://wordpress.org/plugins/antirobot-contact-form/
 Description: AntiRobot Contact Form is a fast and simple spam-blocking contact form using the reCAPTCHA 2.0 API.
-Version: 1.5.0
+Version: 1.6.0
 Text Domain: antirobot-contact-form
-Domain Path: /languages/
 Author: Pascale Beier
 Author URI: https://pascalebeier.de/
 */
@@ -34,45 +33,46 @@ add_action( 'plugins_loaded', 'arcf_textdomain' );
 function arcf_frontend() {
 	?>
 
-	<form action="<?php echo( $_SERVER['REQUEST_URI'] ) ?>" method="post" id="arcf-contact-form">
+    <form method="post" id="arcf-contact-form">
 
-		<fieldset class="form-group">
-			<label for="arcf-name"><?php _e( 'Name', 'antirobot-contact-form' ) ?></label>
-			<input type="text" class="form-control" id="arcf-name" name="arcf-name"
-			       placeholder="<?php _e( 'Jon Doe', 'antirobot-contact-form' ) ?>"
-			       value="<?php echo ! empty( $_POST['arcf-name'] ) ? sanitize_text_field( $_POST['arcf-name'] ) : '' ?>"
-			       required>
-		</fieldset>
+        <fieldset class="form-group">
+            <label for="arcf-name"><?php _e( 'Name', 'antirobot-contact-form' ) ?></label>
+            <input type="text" class="form-control" id="arcf-name" name="arcf-name"
+                   placeholder="<?php _e( 'Jon Doe', 'antirobot-contact-form' ) ?>"
+                   value="<?php echo ! empty( $_POST['arcf-name'] ) ? sanitize_text_field( $_POST['arcf-name'] ) : '' ?>"
+                   required>
+        </fieldset>
 
-		<fieldset class="form-group">
-			<label for="arcf-email"><?php _e( 'E-Mail', 'antirobot-contact-form' ) ?></label>
-			<input type="email" class="form-control" id="arcf-email" name="arcf-email"
-			       placeholder="<?php _e( 'mail@example.org', 'antirobot-contact-form' ) ?>"
-			       value="<?php echo ! empty( $_POST['arcf-email'] ) ? sanitize_email( $_POST['arcf-email'] ) : '' ?>"
-			       required>
-		</fieldset>
+        <fieldset class="form-group">
+            <label for="arcf-email"><?php _e( 'E-Mail', 'antirobot-contact-form' ) ?></label>
+            <input type="email" class="form-control" id="arcf-email" name="arcf-email"
+                   placeholder="<?php _e( 'mail@example.org', 'antirobot-contact-form' ) ?>"
+                   value="<?php echo ! empty( $_POST['arcf-email'] ) ? sanitize_email( $_POST['arcf-email'] ) : '' ?>"
+                   required>
+        </fieldset>
 
-		<fieldset class="form-group">
-			<label for="arcf-message"><?php _e( 'Your Message', 'antirobot-contact-form' ) ?></label>
-			<textarea class="form-control" id="arcf-message" name="arcf-message"
-			          placeholder="<?php _e( 'Enter your message here', 'antirobot-contact-form' ) ?>"
-			          required><?php echo ! empty( $_POST['arcf-message'] ) ? sanitize_text_field( $_POST['arcf-message'] ) : '' ?>
-			</textarea>
-		</fieldset>
+        <fieldset class="form-group">
+            <label for="arcf-message"><?php _e( 'Your Message', 'antirobot-contact-form' ) ?></label>
+            <textarea class="form-control" id="arcf-message" name="arcf-message"
+                      placeholder="<?php _e( 'Enter your message here', 'antirobot-contact-form' ) ?>"
+                      required><?php echo ! empty( $_POST['arcf-message'] ) ? sanitize_text_field( $_POST['arcf-message'] ) : '' ?></textarea>
+        </fieldset>
 
-		<div class="g-recaptcha"
-		     data-sitekey="<?php echo sanitize_text_field( get_option( 'arcf_publickey' ) ) ?>"></div>
+        <fieldset class="form-group">
+            <div class="g-recaptcha"
+                 data-sitekey="<?php echo sanitize_text_field( get_option( 'arcf_publickey' ) ) ?>"></div>
+        </fieldset>
 
-		<script type="text/javascript"
-		        src="https://www.google.com/recaptcha/api.js?hl=<?php echo get_locale() ?>"></script>
+        <script type="text/javascript"
+                src="https://www.google.com/recaptcha/api.js?hl=<?php echo get_locale() ?>"></script>
 
-		<fieldset class="form-group">
-			<button type="submit" class="btn btn-primary" name="arcf-submitted">
+        <fieldset class="form-group">
+            <button type="submit" class="btn btn-primary" name="arcf-submitted">
 				<?php _e( 'Submit', 'antirobot-contact-form' ) ?>
-			</button>
-		</fieldset>
+            </button>
+        </fieldset>
 
-	</form>
+    </form>
 
 	<?php
 }
@@ -88,7 +88,7 @@ function arcf_validation() {
 		$sender_email   = sanitize_email( $_POST['arcf-email'] );
 		$sender_subject = sanitize_text_field( get_option( 'arcf_subject' ) );
 		$sender_message = sprintf(
-			/* translators: 1: Sender Name 2: Sender E-Mail */
+		/* translators: 1: Sender Name 2: Sender E-Mail */
 			__( 'You received a new message from %1$s <%2$s>', 'antirobot-contact-form' ),
 			$sender_name,
 			$sender_email
@@ -97,7 +97,7 @@ function arcf_validation() {
 		$sender_message .= sanitize_text_field( $_POST['arcf-message'] );
 
 		$admin_message = sprintf(
-			/* translators: 1: Admin E-Mail 2: WordPress URL */
+		/* translators: 1: Admin E-Mail 2: WordPress URL */
 			__( 'You successfully sent the following message to %1$s (via %2$s)', 'antirobot-contact-form' ),
 			$admin_email,
 			get_bloginfo( 'url' )
@@ -105,7 +105,7 @@ function arcf_validation() {
 		$admin_message .= "\r\n\r\n";
 		$admin_message .= sanitize_text_field( $_POST['arcf-message'] );
 
-		$admin_subject = __( 'You succesfully sent us an E-Mail!', 'antirobot-contact-form' );
+		$admin_subject = __( 'You successfully sent us an E-Mail!', 'antirobot-contact-form' );
 
 		$admin_headers[] = "From: $admin_email";
 		$admin_headers[] = "Reply-To: $admin_email";
@@ -128,8 +128,8 @@ function arcf_validation() {
 			     . '</p></div>';
 		} else {
 			// ... if so, get the response from the reCAPTCHA service ...
-			$response = wp_remote_fopen( 'https://www.google.com/recaptcha/api/siteverify?secret='.$privatekey.'&response='.$captcha.'&remoteip='.$_SERVER['REMOTE_ADDR'] );
-			$json = json_decode( $response, true );
+			$response = wp_remote_fopen( 'https://www.google.com/recaptcha/api/siteverify?secret=' . $privatekey . '&response=' . $captcha . '&remoteip=' . $_SERVER['REMOTE_ADDR'] );
+			$json     = json_decode( $response, true );
 			// ... if the service did not return true, throw an error ...
 			if ( true !== $json['success'] ) {
 				echo '<div class="alert alert-danger"><p>' .
@@ -196,58 +196,58 @@ function arcf_setup_menu() {
  */
 function arcf_init() {
 	?>
-	<div class="wrap">
+    <div class="wrap">
 
-		<h1><?php _e( 'AntiRobot Contact Form', 'antirobot-contact-form' ); ?></h1>
+        <h1><?php _e( 'AntiRobot Contact Form', 'antirobot-contact-form' ); ?></h1>
 
-		<form method="post" action="options.php">
+        <form method="post" action="options.php">
 			<?php settings_fields( 'arcf-option-group' ) ?>
 			<?php do_settings_sections( 'arcf-option-group' ) ?>
 
-			<h3><?php _e( 'reCAPTCHA', 'antirobot-contact-form' ) ?>
-				<a class="page-title-action" href="https://www.google.com/recaptcha/admin">
+            <h3><?php _e( 'reCAPTCHA', 'antirobot-contact-form' ) ?>
+                <a class="page-title-action" href="https://www.google.com/recaptcha/admin">
 					<?php _e( 'Get your keys', 'antirobot-contact-form' ); ?>
-				</a>
-			</h3>
+                </a>
+            </h3>
 
-			<p>
-				<label><?php _e( 'Public Key', 'antirobot-contact-form' ); ?></label> <br/>
-				<input type="text" size="45" name="arcf_publickey"
-				       value="<?php echo esc_attr( get_option( 'arcf_publickey' ) ) ?> ">
-			</p>
+            <p>
+                <label for="arcf_publickey"><?php _e( 'Public Key', 'antirobot-contact-form' ); ?></label> <br/>
+                <input id="arcf_publickey" type="text" size="45" name="arcf_publickey"
+                       value="<?php echo esc_attr( get_option( 'arcf_publickey' ) ) ?>">
+            </p>
 
-			<p>
-				<label><?php _e( 'Secret Key', 'antirobot-contact-form' ); ?></label> <br/>
-				<input type="text" size="45" name="arcf_privatekey"
-				       value="<?php echo esc_attr( get_option( 'arcf_privatekey' ) ) ?>"/>
-			</p>
+            <p>
+                <label for="arcf_privatekey"><?php _e( 'Secret Key', 'antirobot-contact-form' ); ?></label> <br/>
+                <input id="arcf_privatekey" type="text" size="45" name="arcf_privatekey"
+                       value="<?php echo esc_attr( get_option( 'arcf_privatekey' ) ) ?>">
+            </p>
 
-			<hr>
+            <hr>
 
-			<h3><?php _e( 'Contact Form', 'antirobot-contact-form' ) ?></h3>
+            <h3><?php _e( 'Contact Form', 'antirobot-contact-form' ) ?></h3>
 
-			<p>
-				<label><?php _e( 'Recipient', 'antirobot-contact-form' ) ?></label> <br/>
-				<input type="email" size="45" name="arcf_mailto"
-				       value="<?php echo esc_attr( get_option( 'arcf_mailto' ) ) ?>"/>
-			</p>
+            <p>
+                <label for="arcf_mailto"><?php _e( 'Recipient', 'antirobot-contact-form' ) ?></label> <br/>
+                <input id="arcf_mailto" type="email" size="45" name="arcf_mailto"
+                       value="<?php echo esc_attr( get_option( 'arcf_mailto' ) ) ?>">
+            </p>
 
-			<p>
-				<label><?php _e( 'Subject', 'antirobot-contact-form' ) ?></label> <br/>
-				<input type="text" size="45" name="arcf_subject"
-				       value="<?php echo esc_attr( get_option( 'arcf_subject' ) ) ?>"/>
-			</p>
+            <p>
+                <label for="arcf_subject"><?php _e( 'Subject', 'antirobot-contact-form' ) ?></label> <br/>
+                <input id="arcf_subject" type="text" size="45" name="arcf_subject"
+                       value="<?php echo esc_attr( get_option( 'arcf_subject' ) ) ?>">
+            </p>
 
 			<?php submit_button() ?>
-		</form>
+        </form>
 
-		<h3><?php _e( 'Usage', 'antirobot-contact-form' ); ?></h3>
+        <h3><?php _e( 'Usage', 'antirobot-contact-form' ); ?></h3>
 
-		<p><?php _e( 'After setting up, you may insert the shortcode <code>[antirobot_contact_form]</code> on pages or posts to display the contact form.', 'antirobot-contact-form' ); ?></p>
+        <p><?php _e( 'After setting up, you may insert the shortcode <code>[antirobot_contact_form]</code> on pages or posts to display the contact form.', 'antirobot-contact-form' ); ?></p>
 
-		<h3><?php _e( 'Did you save time?', 'antirobot-contact-form' ); ?></h3>
+        <h3><?php _e( 'Did you save time?', 'antirobot-contact-form' ); ?></h3>
 
-		<p><?php _e( 'If this Plugin has done its job saving your time, <a href="https://wordpress.org/support/view/plugin-reviews/antirobot-contact-form#postform">leave a review</a> and spread the word. If you want to support my coffee addiction, you can <a href="https://pascalebeier.de/donate/">tip me on paypal</a>.</p>', 'antirobot-contact-form' ); ?></p>
-	</div>
+        <p><?php _e( 'If this Plugin has done its job saving your time, <a href="https://wordpress.org/support/view/plugin-reviews/antirobot-contact-form#postform">leave a review</a> and spread the word. If you want to support my coffee addiction, you can <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DCGHNCDNK4XU4">tip me on paypal</a>.</p>', 'antirobot-contact-form' ); ?></p>
+    </div>
 	<?php
 }

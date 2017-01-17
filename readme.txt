@@ -3,7 +3,7 @@ Contributors: pascalebeier
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DCGHNCDNK4XU4
 Tags: contact form, recaptcha, contact, recaptcha 2.0, recaptcha contact form, recaptcha 2, simple contact form
 Requires at least: 3.4
-Tested up to: 4.6.1
+Tested up to: 4.7.1
 Stable tag: 1.5.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
@@ -21,7 +21,7 @@ AntiRobot Contact Form is a fast and simple spam-blocking contact form using the
 * spam-secure thanks to the rock-solid reCAPTCHA-API
 * easy installation - enter your API credentials and get started
 * insert contact forms via shortcode
-* integrates seemlessly in any theme
+* integrates inconspicuously in any theme
 * no additional styling or scripts - AntiRobot does not slow down your website
 * style anything through predefined CSS classes
 
@@ -30,7 +30,7 @@ I answer any questions in the official [support forums](https://wordpress.org/su
 
 = System requirements =
 * WordPress 3.4 or higher
-* PHP 5.2.4 or higher, Tested up to PHP 7.0.11
+* PHP >= 5.2.4 && <=PHP 7.1.0
 
 = Support =
 * [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DCGHNCDNK4XU4)
@@ -51,6 +51,17 @@ I answer any questions in the official [support forums](https://wordpress.org/su
 3. Backend as of 1.0.0
 
 == Changelog ==
+= 1.6.0 =
+
+- Added German and French Translation (Thanks to @PozHonks and @fxbenard)
+- Improved Styling
+- Improved Backend Accessibility
+- Removed Message Input white space characters (Thanks to @PozHonks)
+- Removed Backend Public Key white space character
+- Fixed Donation Link
+- Fixed a spelling issue
+- Tested up to WordPress 4.7.1 and PHP 7.1.0
+
 = 1.5.0 =
 
 - Removed French and German translation due to major update

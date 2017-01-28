@@ -282,20 +282,20 @@ function arcf_init() {
 
                 <tr>
                     <th scope="row">
-                        Sichtbarkeit der Platzhalter
+                        <?php _e('Placeholder Visibility', 'antirobot-contact-form'); ?>
                     </th>
                     <td>
                         <fieldset>
                             <legend class="screen-reader-text">
-                                Sichtbarkeit der Platzhalter
+                                <?php _e('Placeholder Visibility', 'antirobot-contact-form'); ?>
                             </legend>
                             <label for="arcf_placeholders">
                                 <input id="arcf_placeholders" name="arcf_placeholders" type="checkbox"
                                        value="1" <?php checked( get_option( 'arcf_placeholders' ), 1 ) ?>>
-                                Platzhalter anzeigen
+	                            <?php _e('Show Placeholders', 'antirobot-contact-form'); ?>
                             </label>
                             <p class="description">
-                                Damit kann die Ausgabe der placeholder-Attribute gesteuert werden.
+	                            <?php _e('This controls the display of the placeholder attributes.', 'antirobot-contact-form'); ?>
                             </p>
                         </fieldset>
                     </td>

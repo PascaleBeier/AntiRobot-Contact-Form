@@ -44,11 +44,13 @@ I answer any questions in the official [support forums](https://wordpress.org/su
 
 == Screenshots ==
 
-1. German frontend example.
+1. English Backend
 
-2. English frontend example.
+2. German Backend
 
-3. Backend as of 1.0.0
+3. English Form in Twentyseventeen
+
+4. German Form in Twentyseventeen
 
 == Changelog ==
 = 1.7.0 =

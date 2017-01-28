@@ -3,7 +3,7 @@ Contributors: pascalebeier
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DCGHNCDNK4XU4
 Tags: contact form, recaptcha, contact, recaptcha 2.0, recaptcha contact form, recaptcha 2, simple contact form
 Requires at least: 3.4
-Tested up to: 4.7.1
+Tested up to: 4.7.2
 Stable tag: 1.6.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
@@ -30,7 +30,7 @@ I answer any questions in the official [support forums](https://wordpress.org/su
 
 = System requirements =
 * WordPress 3.4 or higher
-* PHP >= 5.2.4 && <=PHP 7.1.0
+* PHP >= 5.2.4 && <=PHP 7.1.1
 
 = Support =
 * [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DCGHNCDNK4XU4)
@@ -51,6 +51,12 @@ I answer any questions in the official [support forums](https://wordpress.org/su
 3. Backend as of 1.0.0
 
 == Changelog ==
+= 1.7.0
+
+- Overhauled Options Page
+- Added Option to disable placeholders
+- Tested up to WordPress 4.7.2 and PHP 7.1.1
+
 = 1.6.0 =
 
 - Added German and French Translation (Thanks to @PozHonks and @fxbenard)

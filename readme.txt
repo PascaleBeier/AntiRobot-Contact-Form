@@ -51,7 +51,7 @@ I answer any questions in the official [support forums](https://wordpress.org/su
 3. Backend as of 1.0.0
 
 == Changelog ==
-= 1.7.0
+= 1.7.0 =
 
 - Overhauled Options Page
 - Added Option to disable placeholders

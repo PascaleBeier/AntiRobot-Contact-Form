@@ -3,7 +3,7 @@
 Plugin Name: AntiRobot Contact Form
 Plugin URI: https://wordpress.org/plugins/antirobot-contact-form/
 Description: AntiRobot Contact Form is a fast and simple spam-blocking contact form using the reCAPTCHA 2.0 API.
-Version: 1.7.0
+Version: 1.8.0
 Text Domain: antirobot-contact-form
 Author: Pascale Beier
 Author URI: https://pascalebeier.de/
@@ -64,18 +64,33 @@ function arcf_frontend() {
                       required><?php echo ! empty( $_POST['arcf-message'] ) ? sanitize_text_field( $_POST['arcf-message'] ) : '' ?></textarea>
         </fieldset>
 
+        <?php if ( ! get_option( 'arcf_invisible' ) ): ?>
         <fieldset class="form-group">
             <div class="g-recaptcha"
                  data-sitekey="<?php echo sanitize_text_field( get_option( 'arcf_publickey' ) ) ?>"></div>
         </fieldset>
+        <?php endif ?>
 
         <script type="text/javascript"
                 src="https://www.google.com/recaptcha/api.js?hl=<?php echo get_locale() ?>"></script>
 
         <fieldset class="form-group">
+            <?php if ( get_option( 'arcf_invisible' ) ): ?>
+                <script>
+                    function onSubmit(token) {
+                        document.getElementById('arcf_submitted').value = 1;
+                        document.getElementById('arcf-contact-form').submit();
+                    }
+                </script>
+                <input type="hidden" id="arcf_submitted" name="arcf-submitted">
+                <button class="btn btn-primary g-recaptcha" id="arcf_submit" data-sitekey="<?php echo sanitize_text_field( get_option( 'arcf_publickey' ) ) ?>" data-callback='onSubmit'>
+	                <?php _e( 'Submit', 'antirobot-contact-form' ) ?>
+                </button>
+            <?php else: ?>
             <button type="submit" class="btn btn-primary" name="arcf-submitted">
 				<?php _e( 'Submit', 'antirobot-contact-form' ) ?>
             </button>
+            <?php endif ?>
         </fieldset>
 
     </form>
@@ -88,7 +103,7 @@ function arcf_frontend() {
  */
 function arcf_validation() {
 	if ( isset( $_POST['arcf-submitted'] ) ) {
-		$admin_email = sanitize_email( get_option( 'arcf_mailto' ) );
+        $admin_email = sanitize_email( get_option( 'arcf_mailto' ) );
 
 		$sender_name    = sanitize_text_field( $_POST['arcf-name'] );
 		$sender_email   = sanitize_email( $_POST['arcf-email'] );
@@ -192,6 +207,7 @@ function arcf_register_settings() {
 	register_setting( 'arcf-option-group', 'arcf_mailto' );
 	register_setting( 'arcf-option-group', 'arcf_subject' );
 	register_setting( 'arcf-option-group', 'arcf_placeholders' );
+	register_setting( 'arcf-option-group', 'arcf_invisible' );
 }
 
 /**
@@ -282,6 +298,27 @@ function arcf_init() {
 
                 <tr>
                     <th scope="row">
+		                <?php _e('Invisible reCAPTCHA', 'antirobot-contact-form'); ?>
+                    </th>
+                    <td>
+                        <fieldset>
+                            <legend class="screen-reader-text">
+				                <?php _e('Invisible reCAPTCHA', 'antirobot-contact-form'); ?>
+                            </legend>
+                            <label for="arcf_invisible">
+                                <input id="arcf_invisible" name="arcf_invisible" type="checkbox"
+                                       value="1" <?php checked( get_option( 'arcf_invisible' ), 1 ) ?>>
+				                <?php _e('Enable Invisible reCAPTCHA', 'antirobot-contact-form'); ?>
+                            </label>
+                            <p class="description">
+				                <?php _e('Enable or Disable Invisible reCAPTCHA. This also needs to be set at the reCAPTCHA site settings.', 'antirobot-contact-form'); ?>
+                            </p>
+                        </fieldset>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th scope="row">
                         <?php _e('Placeholder Visibility', 'antirobot-contact-form'); ?>
                     </th>
                     <td>
@@ -303,7 +340,6 @@ function arcf_init() {
 
                 </tbody>
             </table>
-
 
 			<?php submit_button() ?>
         </form>

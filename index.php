@@ -1,14 +1,4 @@
 <?php
-/*
-Plugin Name: AntiRobot Contact Form
-Plugin URI: https://wordpress.org/plugins/antirobot-contact-form/
-Description: AntiRobot Contact Form is a fast and simple spam-blocking contact form using the reCAPTCHA 2.0 API.
-Version: 1.8.1
-Text Domain: antirobot-contact-form
-Author: Pascale Beier
-Author URI: https://pascalebeier.de/
-*/
-
 /**
  * AntiRobot Contact Form
  *
@@ -31,69 +21,74 @@ add_action( 'plugins_loaded', 'arcf_textdomain' );
  * Contact Form Frontend Code.
  */
 function arcf_frontend() {
+	// I don't really like this, but the WordPress CS forces me to do it this way. Help!
+	$old_name = '';
+	if ( isset( $_POST['arcf-name'] ) ) {
+		$old_name = sanitize_text_field( wp_unsplash( $_POST['arcf-name'] ) ); // Input var okay.
+	}
+
 	?>
 
-    <form method="post" id="arcf-contact-form">
+	<form method="post" id="arcf-contact-form">
 
-        <fieldset class="form-group">
-            <label for="arcf-name"><?php _e( 'Name', 'antirobot-contact-form' ) ?></label>
-            <input type="text" class="form-control" id="arcf-name" name="arcf-name"
-				<?php if ( get_option( 'arcf_placeholders' ) ): ?>
-                    placeholder="<?php _e( 'Jon Doe', 'antirobot-contact-form' ) ?>"
+		<fieldset class="form-group">
+			<label for="arcf-name"><?php esc_html_e( 'Name', 'antirobot-contact-form' ) ?></label>
+			<input type="text" class="form-control" id="arcf-name" name="arcf-name"
+				<?php if ( get_option( 'arcf_placeholders' ) ) : ?>
+					placeholder="<?php esc_html_e( 'Jon Doe', 'antirobot-contact-form' ) ?>"
 				<?php endif ?>
-                   value="<?php echo ! empty( $_POST['arcf-name'] ) ? sanitize_text_field( $_POST['arcf-name'] ) : '' ?>"
-                   required>
-        </fieldset>
+				   value="<?php echo $old_name ?>" required>
+		</fieldset>
 
-        <fieldset class="form-group">
-            <label for="arcf-email"><?php _e( 'E-Mail', 'antirobot-contact-form' ) ?></label>
-            <input type="email" class="form-control" id="arcf-email" name="arcf-email"
-				<?php if ( get_option( 'arcf_placeholders' ) ): ?>
-                    placeholder="<?php _e( 'mail@example.org', 'antirobot-contact-form' ) ?>"
+		<fieldset class="form-group">
+			<label for="arcf-email"><?php _e( 'E-Mail', 'antirobot-contact-form' ) ?></label>
+			<input type="email" class="form-control" id="arcf-email" name="arcf-email"
+				<?php if ( get_option( 'arcf_placeholders' ) ) : ?>
+					placeholder="<?php _e( 'mail@example.org', 'antirobot-contact-form' ) ?>"
 				<?php endif ?>
-                   value="<?php echo ! empty( $_POST['arcf-email'] ) ? sanitize_email( $_POST['arcf-email'] ) : '' ?>"
-                   required>
-        </fieldset>
+				   value="<?php echo ! empty( $_POST['arcf-email'] ) ? sanitize_email( $_POST['arcf-email'] ) : '' ?>"
+				   required>
+		</fieldset>
 
-        <fieldset class="form-group">
-            <label for="arcf-message"><?php _e( 'Your Message', 'antirobot-contact-form' ) ?></label>
-            <textarea class="form-control" id="arcf-message" name="arcf-message"
-				<?php if ( get_option( 'arcf_placeholders' ) ): ?>
-                    placeholder="<?php _e( 'Enter your message here', 'antirobot-contact-form' ) ?>"
+		<fieldset class="form-group">
+			<label for="arcf-message"><?php _e( 'Your Message', 'antirobot-contact-form' ) ?></label>
+			<textarea class="form-control" id="arcf-message" name="arcf-message"
+				<?php if ( get_option( 'arcf_placeholders' ) ) : ?>
+					placeholder="<?php _e( 'Enter your message here', 'antirobot-contact-form' ) ?>"
 				<?php endif ?>
-                      required><?php echo ! empty( $_POST['arcf-message'] ) ? sanitize_text_field( $_POST['arcf-message'] ) : '' ?></textarea>
-        </fieldset>
+					  required><?php echo ! empty( $_POST['arcf-message'] ) ? sanitize_text_field( $_POST['arcf-message'] ) : '' ?></textarea>
+		</fieldset>
 
-        <?php if ( ! get_option( 'arcf_invisible' ) ): ?>
-        <fieldset class="form-group">
-            <div class="g-recaptcha"
-                 data-sitekey="<?php echo sanitize_text_field( get_option( 'arcf_publickey' ) ) ?>"></div>
-        </fieldset>
-        <?php endif ?>
+		<?php if ( ! get_option( 'arcf_invisible' ) ) : ?>
+		<fieldset class="form-group">
+			<div class="g-recaptcha"
+				 data-sitekey="<?php echo sanitize_text_field( get_option( 'arcf_publickey' ) ) ?>"></div>
+		</fieldset>
+		<?php endif ?>
 
-        <script type="text/javascript"
-                src="https://www.google.com/recaptcha/api.js?hl=<?php echo get_locale() ?>"></script>
+		<script type="text/javascript"
+				src="https://www.google.com/recaptcha/api.js?hl=<?php echo get_locale() ?>"></script>
 
-        <fieldset class="form-group">
-            <?php if ( get_option( 'arcf_invisible' ) ): ?>
-                <script>
-                    function onSubmit(token) {
-                        document.getElementById('arcf_submitted').value = 1;
-                        document.getElementById('arcf-contact-form').submit();
-                    }
-                </script>
-                <input type="hidden" id="arcf_submitted" name="arcf-submitted">
-                <button class="btn btn-primary g-recaptcha" id="arcf_submit" data-sitekey="<?php echo sanitize_text_field( get_option( 'arcf_publickey' ) ) ?>" data-callback='onSubmit'>
+		<fieldset class="form-group">
+			<?php if ( get_option( 'arcf_invisible' ) ) : ?>
+				<script>
+					function onSubmit(token) {
+						document.getElementById('arcf_submitted').value = 1;
+						document.getElementById('arcf-contact-form').submit();
+					}
+				</script>
+				<input type="hidden" id="arcf_submitted" name="arcf-submitted">
+				<button class="btn btn-primary g-recaptcha" id="arcf_submit" data-sitekey="<?php echo sanitize_text_field( get_option( 'arcf_publickey' ) ) ?>" data-callback='onSubmit'>
 	                <?php _e( 'Submit', 'antirobot-contact-form' ) ?>
-                </button>
-            <?php else: ?>
-            <button type="submit" class="btn btn-primary" name="arcf-submitted">
+				</button>
+			<?php else : ?>
+			<button type="submit" class="btn btn-primary" name="arcf-submitted">
 				<?php _e( 'Submit', 'antirobot-contact-form' ) ?>
-            </button>
-            <?php endif ?>
-        </fieldset>
+			</button>
+			<?php endif ?>
+		</fieldset>
 
-    </form>
+	</form>
 
 	<?php
 }
@@ -103,13 +98,13 @@ function arcf_frontend() {
  */
 function arcf_validation() {
 	if ( isset( $_POST['arcf-submitted'] ) ) {
-        $admin_email = sanitize_email( get_option( 'arcf_mailto' ) );
+		$admin_email = sanitize_email( get_option( 'arcf_mailto' ) );
 
 		$sender_name    = sanitize_text_field( $_POST['arcf-name'] );
 		$sender_email   = sanitize_email( $_POST['arcf-email'] );
 		$sender_subject = sanitize_text_field( get_option( 'arcf_subject' ) );
 		$sender_message = sprintf(
-		/* translators: 1: Sender Name 2: Sender E-Mail */
+			/* translators: 1: Sender Name 2: Sender E-Mail */
 			__( 'You received a new message from %1$s <%2$s>', 'antirobot-contact-form' ),
 			$sender_name,
 			$sender_email
@@ -118,7 +113,7 @@ function arcf_validation() {
 		$sender_message .= sanitize_text_field( $_POST['arcf-message'] );
 
 		$admin_message = sprintf(
-		/* translators: 1: Admin E-Mail 2: WordPress URL */
+			/* translators: 1: Admin E-Mail 2: WordPress URL */
 			__( 'You successfully sent the following message to %1$s (via %2$s)', 'antirobot-contact-form' ),
 			$admin_email,
 			get_bloginfo( 'url' )
@@ -133,7 +128,6 @@ function arcf_validation() {
 
 		$sender_headers[] = "From: $sender_name <$sender_email>";
 		$sender_headers[] = "Reply-To: $sender_name <$sender_email>";
-
 
 		$privatekey = sanitize_text_field( get_option( 'arcf_privatekey' ) );
 
@@ -155,7 +149,7 @@ function arcf_validation() {
 			if ( true !== $json['success'] ) {
 				echo '<div class="alert alert-danger"><p>' .
 				     __( 'reCAPTCHA did not authorize your request. Make sure your keys are correct.',
-					     'antirobot-contact-form' )
+					 'antirobot-contact-form' )
 				     . '</p></div>';
 				// ... if it did return true, send these mails ...
 			} else {
@@ -166,18 +160,18 @@ function arcf_validation() {
 					// ... and notify the user of that successfully send mail.
 					echo '<div class="alert alert-success"></p>' .
 					     __( 'Message successfully sent. You will receive an E-Mail confirmation soon.',
-						     'antirobot-contact-form' )
+						 'antirobot-contact-form' )
 					     . '</p></div>';
 					// ... but if wp_mail() is troubling, notify the user.
 				} else {
 					echo '<div class="alert alert-danger"><p>' .
 					     __( 'Mail Delivery with wp_mail() failed. Is your web server configuration allowing to send mails?',
-						     'antirobot-contact-form' )
+						 'antirobot-contact-form' )
 					     . '</p></div>';
 				}
 			}
 		}
-	}
+	}// End if().
 }
 
 /**
@@ -215,7 +209,7 @@ function arcf_register_settings() {
  */
 function arcf_setup_menu() {
 	add_options_page( 'AntiRobot Contact Form', 'AntiRobot Contact Form', 'manage_options', 'antirobot-contact-form',
-		'arcf_init' );
+	'arcf_init' );
 }
 
 /**
@@ -223,136 +217,136 @@ function arcf_setup_menu() {
  */
 function arcf_init() {
 	?>
-    <style>
-        span.dashicons-before.dashicons-external {
-            display: inline-block;
-            line-height: 22px;
-        }
-    </style>
-    <div class="wrap">
+	<style>
+		span.dashicons-before.dashicons-external {
+			display: inline-block;
+			line-height: 22px;
+		}
+	</style>
+	<div class="wrap">
 
-        <h1><?php _e( 'AntiRobot Contact Form', 'antirobot-contact-form' ); ?>
-            <a target="_blank" class="page-title-action" href="https://www.google.com/recaptcha/admin">
-                <span class="dashicons-before dashicons-external"></span> <?php _e( 'Get your keys',
-					'antirobot-contact-form' ); ?>
-            </a>
-        </h1>
+		<h1><?php _e( 'AntiRobot Contact Form', 'antirobot-contact-form' ); ?>
+			<a target="_blank" class="page-title-action" href="https://www.google.com/recaptcha/admin">
+				<span class="dashicons-before dashicons-external"></span> <?php _e( 'Get your keys',
+				'antirobot-contact-form' ); ?>
+			</a>
+		</h1>
 
-        <form method="post" action="options.php">
+		<form method="post" action="options.php">
 			<?php settings_fields( 'arcf-option-group' ) ?>
 			<?php do_settings_sections( 'arcf-option-group' ) ?>
 
-            <table class="form-table">
-                <tbody>
-                <tr>
-                    <th scope="row">
-                        <label for="arcf_publickey">
+			<table class="form-table">
+				<tbody>
+				<tr>
+					<th scope="row">
+						<label for="arcf_publickey">
 							<?php _e( 'Public Key', 'antirobot-contact-form' ); ?>
-                        </label>
-                    </th>
-                    <td>
-                        <input id="arcf_publickey" type="text" name="arcf_publickey"
-                               value="<?php echo esc_attr( get_option( 'arcf_publickey' ) ) ?>"
-                               class="regular-text">
-                    </td>
-                </tr>
+						</label>
+					</th>
+					<td>
+						<input id="arcf_publickey" type="text" name="arcf_publickey"
+							   value="<?php echo esc_attr( get_option( 'arcf_publickey' ) ) ?>"
+							   class="regular-text">
+					</td>
+				</tr>
 
-                <tr>
-                    <th scope="row">
-                        <label for="arcf_privatekey">
+				<tr>
+					<th scope="row">
+						<label for="arcf_privatekey">
 							<?php _e( 'Secret Key', 'antirobot-contact-form' ); ?>
-                        </label>
-                    </th>
-                    <td>
-                        <input id="arcf_privatekey" type="text" name="arcf_privatekey"
-                               value="<?php echo esc_attr( get_option( 'arcf_privatekey' ) ) ?>"
-                               class="regular-text">
-                    </td>
-                </tr>
+						</label>
+					</th>
+					<td>
+						<input id="arcf_privatekey" type="text" name="arcf_privatekey"
+							   value="<?php echo esc_attr( get_option( 'arcf_privatekey' ) ) ?>"
+							   class="regular-text">
+					</td>
+				</tr>
 
-                <tr>
-                    <th scope="row">
-                        <label for="arcf_mailto">
+				<tr>
+					<th scope="row">
+						<label for="arcf_mailto">
 							<?php _e( 'Recipient', 'antirobot-contact-form' ) ?>
-                        </label>
-                    </th>
-                    <td>
-                        <input id="arcf_mailto" type="email" name="arcf_mailto"
-                               value="<?php echo esc_attr( get_option( 'arcf_mailto' ) ) ?>"
-                               class="regular-text">
-                    </td>
-                </tr>
+						</label>
+					</th>
+					<td>
+						<input id="arcf_mailto" type="email" name="arcf_mailto"
+							   value="<?php echo esc_attr( get_option( 'arcf_mailto' ) ) ?>"
+							   class="regular-text">
+					</td>
+				</tr>
 
-                <tr>
-                    <th scope="row">
-                        <label for="arcf_subject">
+				<tr>
+					<th scope="row">
+						<label for="arcf_subject">
 							<?php _e( 'Subject', 'antirobot-contact-form' ) ?>
-                        </label>
-                    </th>
-                    <td>
-                        <input id="arcf_subject" type="text" name="arcf_subject"
-                               value="<?php echo esc_attr( get_option( 'arcf_subject' ) ) ?>"
-                               class="regular-text">
-                    </td>
-                </tr>
+						</label>
+					</th>
+					<td>
+						<input id="arcf_subject" type="text" name="arcf_subject"
+							   value="<?php echo esc_attr( get_option( 'arcf_subject' ) ) ?>"
+							   class="regular-text">
+					</td>
+				</tr>
 
-                <tr>
-                    <th scope="row">
-		                <?php _e('Invisible reCAPTCHA', 'antirobot-contact-form'); ?>
-                    </th>
-                    <td>
-                        <fieldset>
-                            <legend class="screen-reader-text">
-				                <?php _e('Invisible reCAPTCHA', 'antirobot-contact-form'); ?>
-                            </legend>
-                            <label for="arcf_invisible">
-                                <input id="arcf_invisible" name="arcf_invisible" type="checkbox"
-                                       value="1" <?php checked( get_option( 'arcf_invisible' ), 1 ) ?>>
-				                <?php _e('Enable Invisible reCAPTCHA', 'antirobot-contact-form'); ?>
-                            </label>
-                            <p class="description">
-				                <?php _e('Enable or Disable Invisible reCAPTCHA. This also needs to be set at the reCAPTCHA site settings.', 'antirobot-contact-form'); ?>
-                            </p>
-                        </fieldset>
-                    </td>
-                </tr>
+				<tr>
+					<th scope="row">
+		                <?php _e( 'Invisible reCAPTCHA', 'antirobot-contact-form' ); ?>
+					</th>
+					<td>
+						<fieldset>
+							<legend class="screen-reader-text">
+				                <?php _e( 'Invisible reCAPTCHA', 'antirobot-contact-form' ); ?>
+							</legend>
+							<label for="arcf_invisible">
+								<input id="arcf_invisible" name="arcf_invisible" type="checkbox"
+									   value="1" <?php checked( get_option( 'arcf_invisible' ), 1 ) ?>>
+				                <?php _e( 'Enable Invisible reCAPTCHA', 'antirobot-contact-form' ); ?>
+							</label>
+							<p class="description">
+				                <?php _e( 'Enable or Disable Invisible reCAPTCHA. This also needs to be set at the reCAPTCHA site settings.', 'antirobot-contact-form' ); ?>
+							</p>
+						</fieldset>
+					</td>
+				</tr>
 
-                <tr>
-                    <th scope="row">
-                        <?php _e('Placeholder Visibility', 'antirobot-contact-form'); ?>
-                    </th>
-                    <td>
-                        <fieldset>
-                            <legend class="screen-reader-text">
-                                <?php _e('Placeholder Visibility', 'antirobot-contact-form'); ?>
-                            </legend>
-                            <label for="arcf_placeholders">
-                                <input id="arcf_placeholders" name="arcf_placeholders" type="checkbox"
-                                       value="1" <?php checked( get_option( 'arcf_placeholders' ), 1 ) ?>>
-	                            <?php _e('Show Placeholders', 'antirobot-contact-form'); ?>
-                            </label>
-                            <p class="description">
-	                            <?php _e('This controls the display of the placeholder attributes.', 'antirobot-contact-form'); ?>
-                            </p>
-                        </fieldset>
-                    </td>
-                </tr>
+				<tr>
+					<th scope="row">
+						<?php _e( 'Placeholder Visibility', 'antirobot-contact-form' ); ?>
+					</th>
+					<td>
+						<fieldset>
+							<legend class="screen-reader-text">
+								<?php _e( 'Placeholder Visibility', 'antirobot-contact-form' ); ?>
+							</legend>
+							<label for="arcf_placeholders">
+								<input id="arcf_placeholders" name="arcf_placeholders" type="checkbox"
+									   value="1" <?php checked( get_option( 'arcf_placeholders' ), 1 ) ?>>
+	                            <?php _e( 'Show Placeholders', 'antirobot-contact-form' ); ?>
+							</label>
+							<p class="description">
+	                            <?php _e( 'This controls the display of the placeholder attributes.', 'antirobot-contact-form' ); ?>
+							</p>
+						</fieldset>
+					</td>
+				</tr>
 
-                </tbody>
-            </table>
+				</tbody>
+			</table>
 
 			<?php submit_button() ?>
-        </form>
+		</form>
 
-        <h2 class="title"><?php _e( 'Usage', 'antirobot-contact-form' ); ?></h2>
+		<h2 class="title"><?php _e( 'Usage', 'antirobot-contact-form' ); ?></h2>
 
-        <p><?php _e( 'After setting up, you may insert the shortcode <code>[antirobot_contact_form]</code> on pages or posts to display the contact form.',
-				'antirobot-contact-form' ); ?></p>
+		<p><?php _e( 'After setting up, you may insert the shortcode <code>[antirobot_contact_form]</code> on pages or posts to display the contact form.',
+		'antirobot-contact-form' ); ?></p>
 
-        <h2 class="title"><?php _e( 'Did you save time?', 'antirobot-contact-form' ); ?></h2>
+		<h2 class="title"><?php _e( 'Did you save time?', 'antirobot-contact-form' ); ?></h2>
 
-        <p><?php _e( 'If this Plugin has done its job saving your time, <a href="https://wordpress.org/support/view/plugin-reviews/antirobot-contact-form#postform">leave a review</a> and spread the word. If you want to support my coffee addiction, you can <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DCGHNCDNK4XU4">tip me on paypal</a>.</p>',
-				'antirobot-contact-form' ); ?></p>
-    </div>
+		<p><?php _e( 'If this Plugin has done its job saving your time, <a href="https://wordpress.org/support/view/plugin-reviews/antirobot-contact-form#postform">leave a review</a> and spread the word. If you want to support my coffee addiction, you can <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DCGHNCDNK4XU4">tip me on paypal</a>.</p>',
+		'antirobot-contact-form' ); ?></p>
+	</div>
 	<?php
 }

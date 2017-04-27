@@ -1,21 +1,25 @@
 === AntiRobot Contact Form ===
 Contributors: pascalebeier
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DCGHNCDNK4XU4
+Donate link: https://www.paypal.me/PascaleBeier
 Tags: contact form, invisible recaptcha, recaptcha, invisible, contact, recaptcha 2.0, recaptcha contact form, recaptcha 2, simple contact form
 Requires at least: 3.4
-Tested up to: 4.7.3
-Stable tag: 1.8.0
+Tested up to: 4.7.4
+Stable tag: 1.8.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
-AntiRobot Contact Form is a fast and simple spam-blocking contact form using the reCAPTCHA 2.0 API.
+AntiRobot Contact Form is a fast and simple spam-blocking contact form using the reCAPTCHA API.
 
 == Description ==
 
 *Note: AntiRobot Contact Form is currently available in English, German and French.
 
 = Simple and fast - but secure! =
-*Don't waste your time* setting up a fast and secure contact form. Inspired by popular contact form plugins, AntiRobot Contact Form removes the struggle of complicated configuration and delivers a secure contact form solution built on top of Google's reCAPTCHA 2.0 API while remaining super simple. Get started within minutes!
+*Don't waste your time* setting up a fast and secure contact form. 
+
+Inspired by popular contact form plugins, AntiRobot Contact Form removes the struggle of complicated configuration and delivers a secure contact form solution built on top of Google's reCAPTCHA API while remaining super simple.
+
+Get started within minutes!
 
 = Features =
 * spam-secure thanks to the rock-solid reCAPTCHA-API
@@ -26,16 +30,23 @@ AntiRobot Contact Form is a fast and simple spam-blocking contact form using the
 * no additional styling or scripts - AntiRobot does not slow down your website
 * style anything through predefined CSS classes
 
-= Support =
-I answer any questions in the official [support forums](https://wordpress.org/support/plugin/antirobot-contact-form).
+= Troubleshooting =
+* I answer any questions in the official [support forums](https://wordpress.org/support/plugin/antirobot-contact-form).
+* Found a bug? File an Issue on [GitHub](https://github.com/PascaleBeier/antirobot-contact-form)!
 
 = System requirements =
-* WordPress 3.4 or higher
-* PHP >= 5.2.4 && <=PHP 7.1.2
 
-= Support =
-* [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DCGHNCDNK4XU4)
-* [Twitter](https://twitter.com/PascaleBeier)
+If you can run WordPress, you can run this plugin.
+
+* WordPress 3.4 or higher
+* PHP >= 5.2.4
+
+= Support the Author =
+Support my unhealthy coffee addiction:
+
+* [Donate via PayPal](https://www.paypal.me/PascaleBeier)
+* [Follow me on Twitter](https://twitter.com/PascaleBeier)
+* [Support Development](https://github.com/PascaleBeier/antirobot-contact-form)
 
 == Installation ==
 
@@ -55,6 +66,13 @@ I answer any questions in the official [support forums](https://wordpress.org/su
 4. German Form in Twentyseventeen
 
 == Changelog ==
+= 1.8.1 =
+
+- Maintenance Release
+- Tested up to WordPress 4.7.4
+- Release on GitHub
+- Updated readme
+
 = 1.8.0 =
 
 - Added Option to enable Invisible reCAPTCHA

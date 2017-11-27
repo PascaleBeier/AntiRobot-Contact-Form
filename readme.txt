@@ -62,6 +62,12 @@ Support my unhealthy coffee addiction:
 4. German Form in Twentyseventeen
 
 == Changelog ==
+= 1.9.0 =
+
+- IMPORTANT: Required at least WordPress 4.6.
+- Feature: Redirect to page after form submission
+- Tested up to WordPress 4.9.0
+
 = 1.8.1 =
 
 - Maintenance Release

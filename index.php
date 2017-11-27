@@ -20,7 +20,7 @@ Author URI: https://pascalebeier.de/
 
 defined( 'ABSPATH' ) || die;
 
-add_action('init', 'do_output_buffer');
+add_action( 'init', 'do_output_buffer' );
 function do_output_buffer() {
 	ob_start();
 }
@@ -164,10 +164,10 @@ function arcf_validation() {
 				     wp_mail( $sender_email, $admin_subject, $admin_message, $admin_headers )
 				) {
 					// ... and notify the user of that successfully send mail.
-                    if (get_option('arcf_redirect')) {
-	                    wp_redirect(get_permalink(get_option('arcf_redirect')));
-	                    exit;
-                    }
+					if ( get_option( 'arcf_redirect' ) ) {
+						wp_redirect( get_permalink( get_option( 'arcf_redirect' ) ) );
+						exit;
+					}
 					echo '<div class="alert alert-success"></p>' .
 					     __( 'Message successfully sent. You will receive an E-Mail confirmation soon.',
 						     'antirobot-contact-form' )
@@ -353,12 +353,13 @@ function arcf_init() {
 								<?php _e( 'Redirection', 'antirobot-contact-form' ); ?>
                             </legend>
                             <label for="arcf_redirect">
-								<?php wp_dropdown_pages( array( 'name'              => 'arcf_redirect',
-								                                'id'                => 'arcf_redirect',
-								                                'echo'              => 1,
-								                                'selected'          => get_option('arcf_redirect'),
-								                                'show_option_none'  => __( 'Disable', 'antirobot-contact-form' ),
-								                                'option_none_value' => 0
+								<?php wp_dropdown_pages( array(
+									'name'              => 'arcf_redirect',
+									'id'                => 'arcf_redirect',
+									'echo'              => 1,
+									'selected'          => get_option( 'arcf_redirect' ),
+									'show_option_none'  => __( 'Disable', 'antirobot-contact-form' ),
+									'option_none_value' => 0
 								) ); ?>
                             </label>
                             <p class="description">

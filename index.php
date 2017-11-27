@@ -19,15 +19,6 @@ Author URI: https://pascalebeier.de/
  */
 
 /**
- * Enable Localization.
- */
-function arcf_textdomain() {
-	load_plugin_textdomain( 'antirobot-contact-form', false, basename( dirname( __FILE__ ) ) . '/languages/' );
-}
-
-add_action( 'plugins_loaded', 'arcf_textdomain' );
-
-/**
  * Contact Form Frontend Code.
  */
 function arcf_frontend() {

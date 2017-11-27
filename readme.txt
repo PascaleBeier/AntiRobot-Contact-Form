@@ -2,9 +2,9 @@
 Contributors: pascalebeier
 Donate link: https://www.paypal.me/PascaleBeier
 Tags: contact form, invisible recaptcha, recaptcha, invisible, contact, recaptcha 2.0, recaptcha contact form, recaptcha 2, simple contact form
-Requires at least: 3.4
-Tested up to: 4.7.4
-Stable tag: 1.8.1
+Requires at least: 4.6
+Tested up to: 4.9.0
+Stable tag: 1.9.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
@@ -38,8 +38,7 @@ Get started within minutes!
 
 If you can run WordPress, you can run this plugin.
 
-* WordPress 3.4 or higher
-* PHP >= 5.2.4
+* WordPress 4.6 or higher
 
 = Support the Author =
 Support my unhealthy coffee addiction:

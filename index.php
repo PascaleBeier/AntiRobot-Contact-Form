@@ -201,6 +201,7 @@ function arcf_register_settings() {
 	register_setting( 'arcf-option-group', 'arcf_subject' );
 	register_setting( 'arcf-option-group', 'arcf_placeholders' );
 	register_setting( 'arcf-option-group', 'arcf_invisible' );
+	register_setting( 'arcf-option-group', 'arcf_redirect' );
 }
 
 /**
@@ -326,6 +327,25 @@ function arcf_init() {
                             </label>
                             <p class="description">
 								<?php _e( 'This controls the display of the placeholder attributes.', 'antirobot-contact-form' ); ?>
+                            </p>
+                        </fieldset>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th scope="row">
+                            <?php _e( 'Redirection', 'antirobot-contact-form' ); ?>
+                    </th>
+                    <td>
+                        <fieldset>
+                            <legend class="screen-reader-text">
+			                    <?php _e( 'Redirection', 'antirobot-contact-form' ); ?>
+                            </legend>
+                            <label for="arcf_redirect">
+	                            <?php wp_dropdown_pages(array('name' => 'arcf_redirect', 'id' => 'arcf_redirect', 'show_option_none' => _e('Disable redirection', 'antirobot-contact-form'), 'option_none_value' => 0)); ?>
+                            </label>
+                            <p class="description">
+			                    <?php _e( 'Select a page to redirect to after form submission.', 'antirobot-contact-form' ); ?>
                             </p>
                         </fieldset>
                     </td>

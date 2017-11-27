@@ -35,9 +35,6 @@ Get started within minutes!
 * Found a bug? File an Issue on [GitHub](https://github.com/PascaleBeier/antirobot-contact-form)!
 
 = System requirements =
-
-If you can run WordPress, you can run this plugin.
-
 * WordPress 4.6 or higher
 
 = Support the Author =
